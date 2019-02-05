@@ -15,10 +15,15 @@ plot(crime_data$City,crime_data$Undercount, main="Undercount variation between C
 
 # Part c : Best Subsets model
 regsubsets.out <-
-  regsubsets(bwt ~ age + lwt + race.cat + smoke + preterm + ht + ui + ftv.cat,
-             data = lbw,
+  regsubsets(Undercount ~ Minority + Crime + Poverty + Language + HighSchool + Housing + Conventional,
+             data = crime_data,
              nbest = 1,       # 1 best model for each number of predictors
              nvmax = NULL,    # NULL for no limit on number of variables
              force.in = NULL, force.out = NULL,
              method = "exhaustive")
 regsubsets.out
+
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+
+plot(regsubsets.out, scale = "adjr2", main = "Adjusted R^2")
