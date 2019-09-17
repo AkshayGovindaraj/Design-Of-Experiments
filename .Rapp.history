@@ -1,0 +1,231 @@
+ls()
+a = 25
+source("/Users/akshaygovindaraj/Documents/MOOCs/Regression Analysis/elections.txt")
+getwd()
+ppp = read.table("/Documents/MOOCs/Regression Analysis/ppp.dat", sep="\t", header=T, row.names=NULL)
+ppp = read.table("Users/akshaygovindaraj/Documents/MOOCs/Regression Analysis/ppp.dat", sep="\t", header=T, row.names=NULL)
+ppp = read.table("/Users/akshaygovindaraj/Documents/MOOCs/Regression Analysis/ppp.dat", sep="\t", header=T, row.names=NULL)
+summary(ppp)
+ppp[1:3,]
+ppp[:,]
+ppp[1:40,]
+dim(ppp)
+addp = data.frame("Brazil", -76, -73, 0)
+ppp = data.frame(rbind(ppp, addp))
+ppp1 = data.frame(rbind(ppp, addp))
+ppp1 = data.frame(rbind(ppp,addp))
+names(addp) = names(ppp)
+ppp = data.frame(rbind(ppp,addp))
+attach(ppp)
+plot(Inflation.difference, Exchange.rate.change, main="Inflation difference vs Exchange rate difference")
+boxplot(Exchange.rate.change ~ as.factor(Developed))
+pppa = lm(Exchange.rate.change ~ Inflation.difference)
+summary(pppa)
+install.packages("car")
+library(car)
+linearHypothesis(pppa, c(0,1), rhs = 1)
+n= 20;#
+theta <- seq(0,1,0.0001);#
+R1 <- 0;#
+for (i in 0:n){#
+ R1 <- R1+choose(n,i)*(theta^i)*((1-theta)^(n-i))*abs(i/n - theta);#
+}#
+R2 <- abs(1/5  - theta);#
+R3 <- abs(1  - theta);#
+plot(theta, R1,"l", ylab="Risk Function", ylim=c(0,1));#
+lines(theta, R2, col="red");#
+lines(theta, R3, col="blue")
+library("readxl")
+my_data <- read_excel("/Users/akshaygovindaraj/Documents/Courses/Regression Analysis/CP1/Business startup costs.xls")
+my_data <- read_excel("/Users/akshaygovindaraj/Documents/Courses/Regression Analysis/CP1/Advertising in local newspapers.xls")
+summary(my_data)
+my_data
+mod1 = aov(data=my_data)
+mod1 = aov(News ~ Business*Sports, data=my_data)
+summary(mod1)
+mod2 = aov(News ~ Day)
+mod2 = aov(News ~ Day, data=my_data)
+summary(mod2)
+my_data <- read_csv("/Users/akshaygovindaraj/Documents/Courses/Regression Analysis/CP1/insurance.csv")
+my_data <- read_excel("/Users/akshaygovindaraj/Documents/Courses/Regression Analysis/CP1/insurance.csv")
+my_data <- read.csv("/Users/akshaygovindaraj/Documents/Courses/Regression Analysis/CP1/insurance.csv")
+summary(my_data)
+mod3 = aov(charges~region)
+mod3 = aov(charges~region, data=my_data)
+summary(mod3)
+boxplot(charges~region, data=my_data)
+boxplot(charges~region, ylab= "Medical Expenses", data=my_data)
+my_data1 <- read_excel("/Users/akshaygovindaraj/Documents/Courses/Regression Analysis/CP1/dji.csv")
+my_data1 <- read.csv("/Users/akshaygovindaraj/Documents/Courses/Regression Analysis/CP1/dji.csv")
+summary(my_data1)
+ewma(my_data1.Close)
+ewma
+mod2
+str(mod2)
+summary(mod3)''
+summary(mod3)
+summary(my_data)
+summary(my_data.region)
+my_data.region
+my_data_region
+my_data
+power.anova.test(groups = NULL, n = NULL, between.var = NULL,#
+                 within.var = NULL, sig.level = 0.05, power = NULL)
+str(my_data)
+summary(my_data$region)
+mean(my_data$region)
+mean(my_data)
+rowMeans(my_data, na.rm = FALSE, dims = 1)
+rowMeans(my_data$charges, na.rm = FALSE, dims = 1)
+model = lm(charges ~ region)
+model = lm(charges ~ region, data=my_data)
+library(car)
+anova(model, type = )
+anova(model, type = "II")
+anova(model)
+summary(model)
+my_data = read_csv('/Users/akshaygovindaraj/Documents/GitHub/isye-6404-fall18-proj/enrichment_projects/ep1/data/Friedman.csv')
+my_data = read.csv('/Users/akshaygovindaraj/Documents/GitHub/isye-6404-fall18-proj/enrichment_projects/ep1/data/Friedman.csv')
+my_data[1:10,]
+PT = dunnTest(Treatment ~ Patient,#
+              data=my_data,#
+              method="bh")
+library(FSA)
+install.packages("FSA")
+boxplot(Treatment ~ Patient, data=my_data)
+boxplot(Treatment.1 ~ Patient, data=my_data)
+my_data
+friedman.test(my_data)
+install.packages("rms")
+install.packages('faraway')
+data(globwarm,package="faraway")
+lmod <- lm(nhtemp ~ wusa + jasper + westgreen + chesapeake + tornetrask + urals + mongolia + tasman, globwarm)#
+sumary(lmod)
+lmod <- lm(nhtemp ~ wusa + jasper + westgreen + chesapeake + tornetrask + urals + mongolia + tasman, globwarm)#
+summary(lmod)
+cor(residuals(lmod)[-1],residuals(lmod)[-length(residuals(lmod))])
+require(nlme)
+glmod <- gls(nhtemp ~ wusa + jasper + westgreen + chesapeake + tornetrask + urals + mongolia + tasman,  correlation=corAR1(form=~year),  data=na.omit(globwarm))#
+summary(glmod)
+intervals(glmod,which="var-cov")
+X=as.matrix(cbind(1,globwarm[globwarm$year>1855,2:9]))
+X
+y=globwarm[globwarm$year>1855,1]
+y
+m=10000#
+library(MASS)#
+library(LearnBayes)#
+I=diag(n)
+install.packages('LearnBayes')
+install.packages('MASS')
+m=10000#
+library(MASS)#
+library(LearnBayes)#
+I=diag(n)
+n=100
+m=10000#
+library(MASS)#
+library(LearnBayes)#
+I=diag(n)
+I
+library(mcmc)#
+library(numDeriv)
+install.packages('mcmc')
+library(mcmc)#
+library(numDeriv)
+logh=function(theta)#
+{#
+  beta=theta[1:9]#
+  sigma2=theta[10]#
+  rho=theta[11]#
+  R=rho^abs(row(I)-col(I))#
+  val=dmnorm(y,mean=X%*%beta,varcov = sigma2*R,log=TRUE)-log(sigma2)#
+  if(rho<(-1)||rho>1) val=-Inf#
+  return(val)#
+}
+head(globwarm)
+head(globwarm[globwarm$year>1855])
+head(globwarm[globwarm$year>1855,1:9])
+head(globwarm[globwarm$year>1855,1:10])
+nlogh=function(theta) -logh(theta)
+thetahat=optim(c(lmod$coef,summary(lmod)$sigma^2,.7),nlogh,lower = c(rep(-Inf,9),10^(-16),-1), upper=c(rep(Inf,9),Inf,1), method = "L-BFGS-B")$par#
+Sigmahat=solve(hessian(nlogh,thetahat))
+thetahat=optim(c(lmod$coef,summary(lmod)$sigma^2,.7),nlogh,lower = c(rep(-Inf,9),10^(-16),-1), upper=c(rep(Inf,9),Inf,1), method = "L-BFGS-B")$par
+n=145
+I = diag(n)
+thetahat=optim(c(lmod$coef,summary(lmod)$sigma^2,.7),nlogh,lower = c(rep(-Inf,9),10^(-16),-1), upper=c(rep(Inf,9),Inf,1), method = "L-BFGS-B")$par
+Sigmahat=solve(hessian(nlogh,thetahat))
+nlogh
+sqrtSigma=eig$vec%*%diag(sqrt(eig$val))%*%t(eig$vec)#
+s=2.4/sqrt(11)*sqrtSigma
+eig=eigen(Sigmahat)#
+sqrtSigma=eig$vec%*%diag(sqrt(eig$val))%*%t(eig$vec)#
+s=2.4/sqrt(11)*sqrtSigma
+out=metrop(logh,initial=thetahat,nbatch=m,scale=s)#
+out$accept
+theta=out$batch#
+effectiveSize(theta)#
+cumuplot(mcmc(theta,start=100,end=m,thin=10))#
+1-rejectionRate(mcmc(theta))#
+plot(mcmc(theta),trace=F)
+library(mcmc)
+theta=out$batch#
+effectiveSize(theta)#
+cumuplot(mcmc(theta,start=100,end=m,thin=10))#
+1-rejectionRate(mcmc(theta))#
+plot(mcmc(theta),trace=F)
+install.packages('mcmc')
+theta=out$batch#
+effectiveSize(theta)#
+cumuplot(mcmc(theta,start=100,end=m,thin=10))#
+1-rejectionRate(mcmc(theta))#
+plot(mcmc(theta),trace=F)
+library(MASS)
+library(LearnBAyes)
+library(LearnBayes)
+theta=out$batch#
+effectiveSize(theta)#
+cumuplot(mcmc(theta,start=100,end=m,thin=10))#
+1-rejectionRate(mcmc(theta))#
+plot(mcmc(theta),trace=F)
+library(NumDeriv)
+library(numDeriv)
+theta=out$batch#
+effectiveSize(theta)#
+cumuplot(mcmc(theta,start=100,end=m,thin=10))#
+1-rejectionRate(mcmc(theta))#
+plot(mcmc(theta),trace=F)
+install.packages('phia')
+library(phia)
+#Design of Experiments: Assignment 6 Question 2#
+coredrill = read.table("CoreDrill", header = FALSE)#
+#
+model = lm(V8 ~  V2 + V3 + V4 + V5 + V6 + V7, data=coredrill)#
+#
+IM = interactionMeans(model)#
+#
+plot(IM)
+#Design of Experiments: Assignment 6 Question 2#
+coredrill = read.table("CoreDrill", header = FALSE)#
+#
+model = lm(V8 ~  V2 + V3 + V4 + V5 + V6 , data=coredrill)#
+#
+IM = interactionMeans(model)#
+#
+plot(IM)
+#Design of Experiments: Assignment 6 Question 2#
+coredrill = read.table("CoreDrill", header = FALSE)#
+#
+model = lm(V8 ~  V2 + V3 + V4 + V5  , data=coredrill)#
+#
+IM = interactionMeans(model)#
+#
+plot(IM)
+#Design of Experiments: Assignment 6 Question 2#
+coredrill = read.table("CoreDrill", header = FALSE)#
+#
+model = lm(V8 ~  V2 , data=coredrill)#
+#
+IM = interactionMeans(model)#
+#
+plot(IM)
